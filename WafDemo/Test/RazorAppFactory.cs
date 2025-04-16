@@ -1,15 +1,14 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
 
-public class RazorAppFactory : WebApplicationFactory<Program>{
+public class RazorAppFactory : WebApplicationFactory<Program>
+{
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
-        builder.ConfigureServices(svc =>
+        builder.ConfigureTestServices(svc =>
         {
-            var dataServiceDescriptor = svc.SingleOrDefault(d=>d.ServiceType == typeof(IDataService));
-            svc.Remove(dataServiceDescriptor);
-
             svc.AddTransient<IDataService, TestDataService>();
         });
     }
