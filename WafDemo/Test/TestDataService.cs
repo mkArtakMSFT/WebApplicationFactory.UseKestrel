@@ -1,5 +1,7 @@
 
 public class TestDataService : IDataService
 {
-    public string[] GetData() => ["test one", "test two", "test three"];
+    public static readonly string[] TestData = ["test one", "test two", "test three"];
+
+    public string[] GetData() => TestData;
 }
