@@ -1,25 +1,24 @@
-﻿using System.Text.RegularExpressions;
-using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Playwright.Xunit;
 
 namespace Test;
 
-public class UnitTest1 : PageTest
+public class PrivacyPageTests : PageTest
 {
     [Fact]
-    public async Task WeatherPage_LoadsSuccessfully()
+    public async Task Page_LoadsSuccessfully()
     {
         using var waf = new RazorAppFactory();
-        
+
         // 
         // _ = waf.CreateClient();
 
         waf.UseKestrel();
         waf.StartServer();
-
         var privacyPagePath = waf.ClientOptions.BaseAddress.ToString() + "Privacy";
         var response = await Page.GotoAsync(privacyPagePath);
+        var content = await response!.TextAsync();
+
         await Expect(Page).ToHaveTitleAsync("Privacy Policy - RazorWeb");
+        Assert.Contains(String.Join(',', TestDataService.TestData), content);
     }
 }
