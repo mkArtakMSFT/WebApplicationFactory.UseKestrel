@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../RazorWeb/RazorWeb.csproj" />
+    <ProjectReference Include="..\BlazorWebApp\BlazorWebApp.csproj" />
   </ItemGroup>
 
   <ItemGroup>
