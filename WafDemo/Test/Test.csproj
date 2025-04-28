@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="WAF\RazorWebFactory.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="coverlet.collector" Version="6.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="10.0.0-preview.4.25215.2" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
@@ -18,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BlazorWebApp\BlazorWebApp.csproj" />
+    <ProjectReference Include="..\RazorWeb\RazorWeb.csproj" />
   </ItemGroup>
 
   <ItemGroup>
