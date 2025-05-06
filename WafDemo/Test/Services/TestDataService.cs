@@ -2,7 +2,7 @@
 
 internal class TestDataService : IDataService
 {
-    public static readonly string[] TestData = ["test one", "test two", "test three"];
+    public static readonly string TestData = "Test information";
 
-    public string[] GetData() => TestData;
+    public string GetData() => TestData;
 }

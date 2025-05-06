@@ -1,3 +1,3 @@
 public interface IDataService {
-    string[] GetData();
+    string GetData();
 }

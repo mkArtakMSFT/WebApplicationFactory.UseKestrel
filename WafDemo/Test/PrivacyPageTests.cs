@@ -9,21 +9,22 @@ public class PrivacyPageTests : PageTest
     [Fact]
     public async Task Page_LoadsSuccessfully()
     {
-        using var waf = new RazorWebFactory();
-
+        #region Not supported approach
         // 
         // _ = waf.CreateClient();
+        #endregion
 
-        waf.UseKestrel(5002);
+        using var waf = new RazorWebFactory();
+
+        waf.UseKestrel();
         waf.StartServer();
 
-        await Task.Delay(30000);
         var privacyPagePath = waf.ClientOptions.BaseAddress.ToString() + "Privacy";
 
         var response = await Page.GotoAsync(privacyPagePath);
         var content = await response!.TextAsync();
 
         await Expect(Page).ToHaveTitleAsync("Privacy Policy - RazorWeb");
-        Assert.Contains(String.Join(',', TestDataService.TestData), content);
+        Assert.Contains(TestDataService.TestData, content);
     }
 }

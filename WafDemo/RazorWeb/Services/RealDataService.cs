@@ -1,5 +1,5 @@
 
 public class RealDataService : IDataService
 {
-    public string[] GetData() => ["real one", "real two", "real three"];
+    public string GetData() => "Important Privacy information";
 }

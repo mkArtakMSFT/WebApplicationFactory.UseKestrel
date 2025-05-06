@@ -11,6 +11,7 @@ namespace BlazorWebApp.Tests.WAF;
 
 public class RazorWebFactory : WebApplicationFactory<RazorWeb.Program>
 {
+    #region Non-supported approach
     //private IHost? _realHost;
 
     //protected override IHost CreateHost(IHostBuilder builder)
@@ -39,7 +40,8 @@ public class RazorWebFactory : WebApplicationFactory<RazorWeb.Program>
     //    }
 
     //    base.Dispose(disposing);
-    //}
+    //} 
+    #endregion
 
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
